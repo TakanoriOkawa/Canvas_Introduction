@@ -21,6 +21,25 @@
       // 点を描く
       context.fillStyle = 'green';
       context.fillRect(10, 10, 20, 20);
+
+      // 線を描画する
+      // 線の色を決定
+      context.strokeStyle = 'red';
+
+      // 線で矩形を描く
+      context.strokeRect(100, 100, 50, 50);
+
+      // 線を描く
+      context.strokeStyle = 'blue';
+      context.moveTo(0, 0); // 始点
+      context.lineTo(150, 150); // 次のパス
+      context.lineTo(150, 100); // その次のパス
+      context.lineTo(10, 100); // 終点
+
+      context.closePath(); // 現在の点から、終点までをつなげる
+      context.stroke(); // 実際に線を描画する(塗り)
+
+      // context.fill();
     </script>
   </body>
 </html>
