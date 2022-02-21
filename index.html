@@ -30,16 +30,33 @@
       context.strokeRect(100, 100, 50, 50);
 
       // 線を描く
-      context.strokeStyle = 'blue';
-      context.moveTo(0, 0); // 始点
-      context.lineTo(150, 150); // 次のパス
-      context.lineTo(150, 100); // その次のパス
-      context.lineTo(10, 100); // 終点
+      context.strokeStyle = 'yellow';
+      // 線の幅を太くする
+      context.lineWidth = 10;
 
-      context.closePath(); // 現在の点から、終点までをつなげる
-      context.stroke(); // 実際に線を描画する(塗り)
+      const region = new Path2D(); // パスを作る
+      region.moveTo(0, 0); // 始点
+      region.lineTo(200, 300); // 次のパス
+      region.lineTo(50, 280); // その次のパス
+      region.lineTo(0, 150); // 終点
+      region.closePath(); // 現在の点から、終点までをつなげる
+      context.stroke(region); // 実際に線を描画する(塗り)
 
-      // context.fill();
+      // // 作成した線を塗る
+      context.fillStyle = 'blue';
+      context.fill(region, 'evenodd'); // enenoddとは塗りが重なった部分をくり抜く。
+
+      // 星形
+      // context.fillStyle = '#ff0000';
+      // context.beginPath();
+      // context.moveTo(100, 10);
+      // context.lineTo(40, 180);
+      // context.lineTo(190, 60);
+      // context.lineTo(10, 60);
+      // context.lineTo(160, 180);
+      // context.closePath();
+      // context.fill('evenodd');
+      // context.stroke('evenodd'); // strokeには、enenoddはない。
     </script>
   </body>
 </html>
