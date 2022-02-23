@@ -57,6 +57,24 @@
       // context.closePath();
       // context.fill('evenodd');
       // context.stroke('evenodd'); // strokeには、enenoddはない。
+
+      // 円を書く
+
+      context.arc(
+        300,
+        300,
+        50,
+        (0 * Math.PI) / 180,
+        (360 * Math.PI) / 180,
+        false
+      );
+      // true:時計回り、 false:反時計回り
+
+      context.fillStyle = 'rgba(255,0,0,0.8)';
+      context.strokeStyle = 'purple';
+
+      context.stroke();
+      context.fill();
     </script>
   </body>
 </html>
