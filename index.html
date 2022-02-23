@@ -85,8 +85,15 @@
       context.fillStyle = 'rgba(0,0,0,0.6)';
       // フォントサイズを載せる。
       context.font = '48px serif';
+
+      // テキストが表示される基準の高さ位置を決定。
+      // context.textBaseline = 'top';
+
+      context.lineWidth = 1; // 線のサイズを更新
+
       // 1.テキスト 2.テキストが始まる開始位置
-      context.fillText('Hello world', 100, 100);
+      context.fillText('Hello world', 100, 100); // テキストの塗り
+      context.strokeText('Hello world', 100, 100); // テキストの線塗り
     </script>
   </body>
 </html>
