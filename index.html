@@ -35,6 +35,10 @@
       context.lineWidth = 10;
 
       const region = new Path2D(); // パスを作る
+      // contextは一つのパスを持っており、その中に毎回サブパスを作り、その描画まで行う。
+      // 最終的にbeginPathで新しいパスを始める・リセットする。
+      context.beginPath();
+
       region.moveTo(0, 0); // 始点
       region.lineTo(200, 300); // 次のパス
       region.lineTo(50, 280); // その次のパス
