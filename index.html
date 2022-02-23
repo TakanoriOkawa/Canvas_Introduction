@@ -35,6 +35,10 @@
       context.lineWidth = 10;
 
       const region = new Path2D(); // パスを作る
+      // contextは一つのパスを持っており、その中に毎回サブパスを作り、その描画まで行う。
+      // 最終的にbeginPathで新しいパスを始める・リセットする。
+      context.beginPath();
+
       region.moveTo(0, 0); // 始点
       region.lineTo(200, 300); // 次のパス
       region.lineTo(50, 280); // その次のパス
@@ -59,22 +63,23 @@
       // context.stroke('evenodd'); // strokeには、enenoddはない。
 
       // 円を書く
-
       context.arc(
-        300,
-        300,
-        50,
-        (0 * Math.PI) / 180,
-        (360 * Math.PI) / 180,
+        300, // x軸
+        300, // y軸
+        50, // 半径
+        (0 * Math.PI) / 180, // 0度
+        (270 * Math.PI) / 180, // 5度
         false
       );
-      // true:時計回り、 false:反時計回り
+      // 度数はラジアン（弧度法）で指定する。
+      // ラジアンの求め方は→ 「 度数 / 180 * Math.PI（円周率） 」
+      // true:反時計回り false:時計回り
 
       context.fillStyle = 'rgba(255,0,0,0.8)';
       context.strokeStyle = 'purple';
 
       context.stroke();
-      context.fill();
+      // context.fill();
     </script>
   </body>
 </html>
