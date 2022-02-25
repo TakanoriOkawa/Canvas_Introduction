@@ -94,6 +94,16 @@
       // 1.テキスト 2.テキストが始まる開始位置
       context.fillText('Hello world', 100, 100); // テキストの塗り
       context.strokeText('Hello world', 100, 100); // テキストの線塗り
+
+      // 画像を描画
+
+      const img = new Image();
+
+      img.src = 'https://placehold.jp/150x150.png';
+
+      img.onload = () => {
+        context.drawImage(img, 0, 0);
+      };
     </script>
   </body>
 </html>
