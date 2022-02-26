@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas class="canvas" width="600" height="400"></canvas>
+    <canvas class="canvas" width="600" height="600"></canvas>
+    <img src="./300x400.png" class="img" />
     <script>
       const canvas = document.querySelector('.canvas');
       const context = canvas.getContext('2d');
@@ -96,13 +97,17 @@
       context.strokeText('Hello world', 100, 100); // テキストの線塗り
 
       // 画像を描画
-
-      const img = new Image();
-
+      const img = new Image(); // imgエレメントを作成。
       img.src = 'https://placehold.jp/150x150.png';
 
+      // HTML上にあるものをCanvasに描画する
+      const imgElement = document.querySelector('.img');
+
       img.onload = () => {
-        context.drawImage(img, 0, 0);
+        imgElement.onload = () => {
+          context.drawImage(img, 0, 0);
+          context.drawImage(imgElement, 100, 100);
+        };
       };
     </script>
   </body>
